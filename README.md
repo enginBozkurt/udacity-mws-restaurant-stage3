@@ -29,8 +29,9 @@ curl "http://localhost:1337/restaurants/{3}"
 # Architecture
 Local server:
 
-Node.js
-Sails.js
+# Node.js
+
+# Sails.js
 --
 
 # Start only server
