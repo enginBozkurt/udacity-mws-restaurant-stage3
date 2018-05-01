@@ -16,5 +16,77 @@ For the Restaurant Reviews projects, you will incrementally convert a static web
 ### Note about ES6
 Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write. 
 
+### Local Development API Server
 
-![screenshot_85](https://user-images.githubusercontent.com/30608533/39457662-13997a72-4cf8-11e8-976b-ace612c05ffb.jpg)
+## Usage
+
+### Get Restaurants
+curl "http://localhost:1337/restaurants/"
+
+# Get Restaurants by id
+curl "http://localhost:1337/restaurants/{3}"
+
+# Architecture
+Local server:
+
+Node.js
+Sails.js
+--
+
+# Start only server
+npm run start: development, Port: 1337
+
+### Start the server and the building process together
+npm run sailsjs: production, Port: 1337, you manually have to go to url http://localhost:1377 Served from .tmp/public folder
+
+
+### GET Endpoints
+Get all restaurants
+http://localhost:1337/restaurants/
+
+Get favorite restaurants
+http://localhost:1337/restaurants/?is_favorite=true
+
+Get a restaurant by id
+http://localhost:1337/restaurants/<restaurant_id>
+
+Get all reviews for a restaurant
+http://localhost:1337/reviews/?restaurant_id=<restaurant_id>
+
+Get all restaurant reviews
+http://localhost:1337/reviews/
+
+Get a restaurant review by id
+http://localhost:1337/reviews/<review_id>
+
+POST Endpoints
+Create a new restaurant review
+http://localhost:1337/reviews/
+
+{
+    "restaurant_id": <restaurant_id>,
+    "name": <reviewer_name>,
+    "rating": <rating>,
+    "comments": <comment_text>
+}
+PUT Endpoints
+Favorite a restaurant
+http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=true
+
+Unfavorite a restaurant
+http://localhost:1337/restaurants/<restaurant_id>/?is_favorite=false
+
+Update a restaurant review
+http://localhost:1337/reviews/<review_id>
+
+{
+    "name": <reviewer_name>,
+    "rating": <rating>,
+    "comments": <comment_text>
+}
+DELETE Endpoints
+Delete a restaurant review
+http://localhost:1337/reviews/<review_id>
+  
+  ### Audits > Lighthouse
+  
