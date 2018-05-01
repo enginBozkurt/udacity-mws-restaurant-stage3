@@ -77,5 +77,6 @@ gulp.task('copy-styles', function () {
 			browsers: ['last 2 versions']
 		}))
 		.pipe(gulp.dest('dist/css'));
+
 });
 

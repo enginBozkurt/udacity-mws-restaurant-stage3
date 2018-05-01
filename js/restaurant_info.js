@@ -2,11 +2,11 @@ let restaurant;
 let reviews;
 var map;
 let is_favorite;
-var modalOverlay;
-var modal,mapMobileInit=false,mapDesktopInit=false;
+var modalOverlay; 
+var modal,mapMobileInit=false,mapDesktopInit=false; 
 let focusedElementBeforeModal= document.activeElement;
 const focusableElementsString = 'input:not([disabled]), textarea:not([disabled]), button:not([disabled])';
-// Generate restaurant info
+// Generate restaurant info 
  function initHtml() {
   fetchRestaurantFromURL();
   modalOverlay =document.querySelector('.modal-overlay');
@@ -18,10 +18,10 @@ window.addEventListener('resize',()=>{
 window.startMaps=()=>{
   if(window.innerWidth < 817) {
     self.InitMobileMap();
-
-
+    
+      
     } else {
-
+      
       self.initDesktopMap();
     }
 }
@@ -37,9 +37,9 @@ window.InitMobileMap=() => {
   var mapImage = document.querySelector('.static_map');
   mapImage.setAttribute('src',`https://maps.googleapis.com/maps/api/staticmap?center=${restaurant.latlng.lat},${restaurant.latlng.lng}&markers=size:large|color:red|${restaurant.latlng.lat},${restaurant.latlng.lng}&zoom=16&size=400x400&maptype=roadmap&key=AIzaSyAsggoUe5zy3jLXhAo-kYQ8xmgpTi377Ec`);
   mapImage.addEventListener('click',function(e){
-    e.preventDefault();
-
-    mapImage.style.display ='none';
+    e.preventDefault(); 
+    
+    mapImage.style.display ='none'; 
     self.initDesktopMap();})
 });
 }
@@ -49,7 +49,7 @@ window.initDesktopMap = () => {
   }
   fetchRestaurantFromURL().then(function(restaurant){
    var mapdiv =document.getElementById('map');
-   mapdiv.style.display ='block';
+   mapdiv.style.display ='block'; 
       self.map = new google.maps.Map(mapdiv, {
         zoom: 16,
         center: restaurant.latlng,
@@ -77,7 +77,7 @@ function fetchRestaurantFromURL() {
         console.error('No restaurant data');
         return Promise.reject('No restaurant data');
       }
-
+      
       self.restaurant = restaurant;
       fillRestaurantHTML();
       fillBreadcrumb();
@@ -95,7 +95,7 @@ markFavorite=(element)=>{
   self.is_favorite ='false';
   element.removeAttribute('aria-label');
   element.setAttribute('aria-label','Mark as favorite');
-
+  
 } else {
   self.restaurant.is_favorite ='true';
   self.is_favorite ='true';
@@ -201,7 +201,7 @@ createReviewHTML = (review) => {
   const date = renderHtml('p',new Date(review.createdAt).toGMTString().slice(0,16));
   date.setAttribute('class','reviews-list-date');
   li.appendChild(date);
-
+  
   const rating = renderHtml('p',`Rating: ${review.rating}`);
   rating.setAttribute('class','reviews-list-rating');
   li.appendChild(rating);
@@ -217,7 +217,7 @@ modal.innerHTML='';
 
 modalOverlay.addEventListener('click',closeModal);
 const reviewForm = renderHtml('form',null);
-const review_header = renderHtml('h3','Add Review Form');
+const review_header = renderHtml('h1','Add Review Form');
   review_header.id='review_header';
   modal.setAttribute('aria-labelledby','review_header');
 const reviewer_name = renderForm('input','name','text');
@@ -309,7 +309,7 @@ addReview =(e) => {
     fillReviewsHTML();
   });
   closeModal();
-}
+} 
 }
 
 checkEmptyFields=(formInputs)=>{
@@ -317,7 +317,7 @@ checkEmptyFields=(formInputs)=>{
 const  message_container= document.querySelector('#message_container');
 message_container.innerHTML='';
 if(formInputs[0].value ==='' || (formInputs[1].value <1 || formInputs[1].value >5 || formInputs[1].value ==='') || formInputs[2].value ==='')
- {
+ {  
    valid =false;
    message_container.innerHTML='Please fill above empty feild!';
    message_container.setAttribute('role','alert');
@@ -352,7 +352,7 @@ renderForm =(name,id,type) => {
  * Add restaurant name to the breadcrumb navigation menu
  */
 fillBreadcrumb = (restaurant=self.restaurant) => {
-
+  
   if(restaurant) {
   const breadcrumb = document.getElementById('breadcrumb');
   if(breadcrumb.childNodes.length<2) {

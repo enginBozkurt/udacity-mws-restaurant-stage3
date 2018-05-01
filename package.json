@@ -1,22 +1,7 @@
 {
-  "name": "mws-restaurant-stage-3-ultimate",
+  "name": "mws-restaurant-stage2",
   "version": "1.0.0",
-  "description": "---\r #### _Three Stage Course Material Project - Restaurant Reviews_",
-  "main": "gulp.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elisaromondia/mws-restaurant-stage-2"
-  },
-  "author": "Elisa Romondia",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/elisaromondia/mws-restaurant-stage-3-ultimate/issues"
-  },
-  "homepage": "https://github.com/elisaromondia/mws-restaurant-stage-3-ultimate#readme",
-  
+  "private": true,
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
@@ -32,8 +17,10 @@
     "imagemin-mozjpeg": "^7.0.0",
     "imagemin-pngquant": "^5.0.1"
   },
-  
-  "dependencies": {
-    "idb": "^2.1.1"
+  "dependencies": {},
+  "description": "---\r #### _Three Stage Course Material Project - Restaurant Reviews_",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
